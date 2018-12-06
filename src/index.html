@@ -11,23 +11,43 @@
 
 <body>
   <button id="close" onclick="closeWindow()"><i class="fa fa-times"></i></button>
-  <input type="text" id="username" name="username">
-  <input type="text" id="password" name="password">
-  <button onclick="login()"></button>
+  <div id="landing">
+    <div class="container">
+      <input placeholder="username" type="text" id="username" name="username">
+      <input placeholder="password" type="password" id="password" name="password">
+    </div>
+    <button id="submit" onclick="login()">Login</button>
+  </div>
+  <div id="dashboard">
+    <p>tracker</p>
+  </div>
 </body>
 
 <script>
+  const user = document.getElementById('username');
+  const passwd = document.getElementById('password');
+  user.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+          login();
+      }
+  });
+  passwd.addEventListener("keyup", function(event) {
+      event.preventDefault();
+      if (event.keyCode === 13) {
+          login();
+      }
+  });
   function login() {
-    const user = document.getElementById('username').value;
-    const passwd = document.getElementById('password').value;
     http(
       'http:/localhost:5000/authenticate' +
-      '?username=' + btoa(user) +
-      '&password=' + btoa(passwd),
+      '?username=' + btoa(user.value) +
+      '&password=' + btoa(passwd.value),
       'GET',
       function (response) {
         if (!('errorMessages' in JSON.parse(response))) {
-          alert('logged in');
+          document.getElementById('landing').style.display = 'none';
+          document.getElementById('dashboard').style.display = 'block';
         } else {
           alert('Login Incorrect');
         }
