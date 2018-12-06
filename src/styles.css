@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,900');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  margin: 10px;
+  overflow: hidden;
+}
+#close {
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: white;
+  border: none;
+  border-radius: 0;
+  background-color: indianred;
+  border-bottom-left-radius: 10px;
+  font-size: 15px;
+  z-index: 2;
+  cursor: pointer;
+}
+#close:hover {
+  background-color: red;
+}
+
+body .ui-table .ui-table-thead > tr > th {
+  font-size: 12px;
+}

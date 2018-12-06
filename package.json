@@ -1,7 +1,7 @@
 {
-  "name": "example-menubar-app",
+  "name": "jira-time-tracker",
   "version": "1.0.0",
-  "description": "example menubar electron app",
+  "description": "Time tracker tool for Jira",
   "dependencies": {
     "menubar": "*"
   },
@@ -9,9 +9,9 @@
     "electron-packager": "^5.1.0",
     "electron-prebuilt": "^0.36.0"
   },
-  "main": "main.js",
+  "main": "src/main.js",
   "scripts": {
-    "build": "electron-packager . Example --platform=darwin --arch=x64 --version=0.36.0 --icon=jira.icns",
+    "build": "electron-packager . 'Time Tracker' --platform=darwin --arch=x64 --version=0.36.0 --icon=jira.icns",
     "start": "electron ."
   }
 }
