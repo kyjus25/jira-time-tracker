@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "description": "Time tracker tool for Jira",
   "dependencies": {
-    "express": "~4.16.4",
-    "menubar": "*"
+    "express": "latest",
+    "menubar": "latest"
   },
   "devDependencies": {
-    "electron-packager": "^5.1.0",
-    "electron-prebuilt": "^0.36.0"
+    "electron-packager": "latest",
+    "electron-prebuilt": "latest"
   },
   "main": "src/main.js",
   "scripts": {

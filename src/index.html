@@ -8,9 +8,49 @@
   >
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <button id="close" onclick="closeWindow()"><i class="fa fa-times"></i></button>
-  Definitely updated
+  <input type="text" id="username" name="username">
+  <input type="text" id="password" name="password">
+  <button onclick="login()"></button>
 </body>
+
+<script>
+  function login() {
+    const user = document.getElementById('username').value;
+    const passwd = document.getElementById('password').value;
+    http(
+      'http:/localhost:5000/authenticate' +
+      '?username=' + btoa(user) +
+      '&password=' + btoa(passwd),
+      'GET',
+      function (response) {
+        if (!('errorMessages' in JSON.parse(response))) {
+          alert('logged in');
+        } else {
+          alert('Login Incorrect');
+        }
+      }
+    );
+  }
+
+  function closeWindow() {
+      http('http://localhost:5000/exit', 'GET', '');
+  }
+
+  function http(theUrl, method, callback)
+  {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+          if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
+              callback(xmlHttp.responseText);
+      };
+      xmlHttp.open(method, theUrl, true); // true for asynchronous
+      xmlHttp.send(null);
+  }
+</script>
+
+
 
 </html>

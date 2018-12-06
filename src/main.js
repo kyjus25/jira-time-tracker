@@ -9,8 +9,6 @@ mb.on('ready', function ready () {
   console.log('app is ready');
 });
 
-
-
 var express = require('express');
 var bodyParser = require('body-parser');
 var request = require('request');
@@ -26,13 +24,20 @@ expressApp.set('cookie', "");
 
 
 expressApp.get('/authenticate', function (req, res) {
+    var username =  new Buffer(req.query.username, 'base64').toString();
+    var password = new Buffer(req.query.password, 'base64').toString();
+
     request.post(
         'https://pavlovmedia.atlassian.net/rest/auth/latest/session',
+
         { json:
-                {"username": Buffer.from(req.query.username, 'base64').toString(),
-                    "password": Buffer.from(req.query.password, 'base64').toString()}
+                {"username": username,
+                    "password": password}
         },
+
         function (error, response, body) {
+            // console.log(error);
+            // console.log(response);
             if (body.session !== undefined) {
                 expressApp.set('cookie', body.session.name + "=" + body.session.value);
             }
