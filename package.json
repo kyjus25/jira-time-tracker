@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Time tracker tool for Jira",
   "dependencies": {
+    "express": "~4.16.4",
     "menubar": "*"
   },
   "devDependencies": {
