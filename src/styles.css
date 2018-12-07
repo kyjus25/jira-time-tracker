@@ -5,35 +5,64 @@
 body {
   font-family: 'Montserrat', sans-serif;
   color: white;
-  margin: 10px;
   overflow: hidden;
 }
-.container {
+#landing {
+
+}
+#landing {
+
+}
+#dashboard {
+  margin-top: -15px;
+  display: none;
+}
+#dashboard p {
+  color: darkgrey;
+  font-size: 20px;
+}
+#dashboard input {
+  width: 27vw;
+  margin: 0 10px;
+}
+#landing, .container {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 input {
   padding: 5px;
   border: none;
   font-size: 18px;
-  width: 100%;
+  height: 35px;
 }
-#dashboard {
-  display: none;
-}
-#username {
+#username, #password {
   margin-right: 5px;
 }
 #password {
+  margin-right: 5px;
   margin-left: 5px;
 }
-#submit {
+#submit, #save, #exit {
+  margin-left: 5px;
   background-color: #0747A6;
   border: none;
   width: 100%;
   padding: 5px;
   font-size: 18px;
   color: white;
-  margin-top: 10px;
+  height: 35px;
+}
+#exit {
+  margin-left: 10px;
+  background-color: indianred;
+}
+#exit:hover {
+  margin-left: 10px;
+  background-color: red;
+}
+#save {
+  width: 15vw;
 }
 #close {
   position: fixed;
@@ -44,12 +73,30 @@ input {
   border-radius: 0;
   background-color: indianred;
   border-bottom-left-radius: 10px;
-  font-size: 15px;
+  font-size: 8px;
   z-index: 2;
   cursor: pointer;
 }
 #close:hover {
   background-color: red;
+  cursor: pointer;
+}
+#config {
+  position: fixed;
+  left: 0;
+  top: 0;
+  color: white;
+  border: none;
+  border-radius: 0;
+  background-color: darkgrey;
+  border-bottom-right-radius: 10px;
+  font-size: 8px;
+  z-index: 2;
+  cursor: pointer;
+}
+#config:hover {
+  background-color: lightgrey;
+  cursor: pointer;
 }
 
 body .ui-table .ui-table-thead > tr > th {

@@ -10,16 +10,21 @@
 </head>
 
 <body>
-  <button id="close" onclick="closeWindow()"><i class="fa fa-times"></i></button>
   <div id="landing">
-    <div class="container">
-      <input placeholder="username" type="text" id="username" name="username">
-      <input placeholder="password" type="password" id="password" name="password">
-    </div>
+    <input placeholder="username" type="text" id="username" name="username">
+    <input placeholder="password" type="password" id="password" name="password">
     <button id="submit" onclick="login()">Login</button>
+    <button id="exit" onclick="closeWindow()">Exit</button>
   </div>
   <div id="dashboard">
-    <p>tracker</p>
+    <button id="config" onclick="config()"><i class="fa fa-cog"></i></button>
+    <button id="close" onclick="closeWindow()"><i class="fa fa-times"></i></button>
+    <div class="container">
+      <p>PEB-109</p>
+      <input placeholder="4h" type="text" id="logged" name="logged"> <p>/</p>
+      <input placeholder="8h" type="text" id="remaining" name="remaining">
+      <button id="save" onclick="login()">Save</button>
+    </div>
   </div>
 </body>
 
